@@ -1,0 +1,79 @@
+<mxfile host="Electron" modified="2026-06-17T02:16:03.420Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.1.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" version="24.1.0" etag="FrE4xnsutDAqwGQZP7ob" type="device">
+  <diagram id="mM6-B7EFJx81X1exIqgy" name="Página-1">
+    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="El Grid como Fuente de Verdad — Simple God" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="200" y="20" width="600" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl-writers" value="ESCRITORES — modifican el Grid directamente" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontColor=#E6DB3A;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="200" y="65" width="600" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="power" value="&lt;b&gt;PowerSystem&lt;/b&gt;&lt;br&gt;Lluvia · Rayo · Fertilidad" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BAA400;strokeColor=#B09500;fontSize=12;arcSize=8;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="120" y="90" width="220" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="daynight" value="&lt;b&gt;DayNightCycle&lt;/b&gt;&lt;br&gt;Temperatura · Luz" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BAA400;strokeColor=#B09500;fontSize=12;arcSize=8;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="660" y="90" width="220" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="grid" value="&lt;b&gt;GridManager&lt;/b&gt;&lt;br&gt;TileData[] — array plano de structs&lt;br&gt;Humidity · Fertility · Temperature · Altitude" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontSize=13;arcSize=6;verticalAlign=middle;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="330" y="230" width="340" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e-power-grid" value="modifica tiles" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;fontColor=#999999;" parent="1" source="power" target="grid" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-day-grid" value="modifica tiles" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;fontColor=#999999;" parent="1" source="daynight" target="grid" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl-push" value="LECTORES PUSH — suscritos a OnTileChanged (evento estático)" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontColor=#8BDE7B;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="200" y="365" width="600" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="flora" value="&lt;b&gt;FloraSystem&lt;/b&gt;&lt;br&gt;crece · muere · reacciona" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6d8764;strokeColor=#3A5431;fontSize=12;arcSize=8;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="240" y="390" width="140" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="weather" value="&lt;b&gt;WeatherSystem&lt;/b&gt;&lt;br&gt;propaga humedad · clima" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6d8764;strokeColor=#3A5431;fontSize=12;arcSize=8;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="610" y="390" width="155" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="e-grid-flora" value="OnTileChanged" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontSize=10;fontColor=#999999;" parent="1" source="grid" target="flora" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-grid-weather" value="OnTileChanged" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontSize=10;fontColor=#999999;" parent="1" source="grid" target="weather" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl-pull" value="LECTORES PULL — consultan cuando necesitan decidir" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontColor=#7EA6E0;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="200" y="500" width="600" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aimanager" value="&lt;b&gt;AIManager&lt;/b&gt;&lt;br&gt;GetTilesInRadius(pos, range)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#647687;strokeColor=#314354;fontSize=12;arcSize=8;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="80" y="530" width="220" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="pathfinder" value="&lt;b&gt;Pathfinder&lt;/b&gt;&lt;br&gt;IsWalkable(pos)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#647687;strokeColor=#314354;fontSize=12;arcSize=8;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="390" y="530" width="220" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="debugui" value="&lt;b&gt;Debug UI&lt;/b&gt;&lt;br&gt;GetTile(pos) — visualización" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#647687;strokeColor=#314354;fontSize=12;arcSize=8;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="700" y="530" width="220" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="e-grid-ai" value="spatial query" style="edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=2 4;endArrow=open;endFill=0;fontSize=10;fontColor=#999999;" parent="1" source="grid" target="aimanager" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-grid-path" value="walkability query" style="edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=2 4;endArrow=open;endFill=0;fontSize=10;fontColor=#999999;" parent="1" source="grid" target="pathfinder" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-grid-debug" value="tile query" style="edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=2 4;endArrow=open;endFill=0;fontSize=10;fontColor=#999999;" parent="1" source="grid" target="debugui" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl-legend" value="&lt;b&gt;Leyenda&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="80" y="630" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-write" value="Escribe (modifica tiles)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BAA400;strokeColor=#B09500;fontSize=11;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="80" y="655" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-push" value="Push — OnTileChanged (evento)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6d8764;strokeColor=#3A5431;fontSize=11;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="295" y="655" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-pull" value="Pull — spatial query (por demanda)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#647687;strokeColor=#314354;fontSize=11;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="510" y="655" width="220" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

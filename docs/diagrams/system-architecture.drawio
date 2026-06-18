@@ -1,0 +1,153 @@
+<mxfile host="Electron" modified="2026-06-17T01:07:27.899Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.1.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" version="24.1.0" etag="fMJEmqsd2WOCk8KzHZ24" type="device">
+  <diagram id="1OIYR1h4akilhLQmaQtJ" name="Página-1">
+    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Arquitectura de Sistemas — Simple God" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="200" y="20" width="600" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="layer0-label" value="Capa 0 — Entrada del jugador" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#7D6608;" parent="1" vertex="1">
+          <mxGeometry x="60" y="65" width="250" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="player" value="&lt;font color=&quot;#000000&quot;&gt;&lt;b&gt;Entrada del jugador&lt;/b&gt;&lt;br&gt;Clicks en el Grid → PowerSystem&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;arcSize=8;" parent="1" vertex="1">
+          <mxGeometry x="60" y="85" width="860" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="layer1-label" value="Capa 1 — Coordinador" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#A073C7;" parent="1" vertex="1">
+          <mxGeometry x="60" y="155" width="250" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gameloop" value="&lt;font color=&quot;#000000&quot;&gt;&lt;b&gt;GameLoop&lt;/b&gt;&lt;br&gt;Tick configurable · Orden de sistemas&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;arcSize=8;" parent="1" vertex="1">
+          <mxGeometry x="310" y="175" width="360" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e-player-gameloop" style="edgeStyle=orthogonalEdgeStyle;" parent="1" source="player" target="gameloop" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="layer2-label" value="Capa 2 — Sistemas del mundo (orden de ejecución →)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#67AB9F;" parent="1" vertex="1">
+          <mxGeometry x="60" y="290" width="400" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="daynight" value="&lt;b&gt;DayNightCycle&lt;/b&gt;&lt;br&gt;Tiempo · Temperatura" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;arcSize=8;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="60" y="320" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gridmanager" value="&lt;b&gt;GridManager&lt;/b&gt;&lt;br&gt;Variables de tiles" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;arcSize=8;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="270" y="320" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="flora" value="&lt;b&gt;FloraSystem&lt;/b&gt;&lt;br&gt;Crecimiento · Recursos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;arcSize=8;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="480" y="320" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="aimanager" value="&lt;b&gt;AIManager&lt;/b&gt;&lt;br&gt;Scheduling · Time-slicing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;arcSize=8;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="690" y="320" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e-gl-dn" style="edgeStyle=orthogonalEdgeStyle;" parent="1" source="gameloop" target="daynight" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-gl-gm" style="edgeStyle=orthogonalEdgeStyle;" parent="1" source="gameloop" target="gridmanager" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-gl-fl" style="edgeStyle=orthogonalEdgeStyle;" parent="1" source="gameloop" target="flora" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-gl-ai" style="edgeStyle=orthogonalEdgeStyle;" parent="1" source="gameloop" target="aimanager" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-gm-fl" value="Push (evento)" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontSize=10;" parent="1" source="gridmanager" target="flora" edge="1">
+          <mxGeometry x="0.3333" y="50" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-gm-ai" value="Pull (spatial query)" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontSize=10;" parent="1" source="gridmanager" target="aimanager" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="405" />
+              <mxPoint x="780" y="405" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="layer3-label" value="Capa 3 — Sistema de agentes" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#FF9999;" parent="1" vertex="1">
+          <mxGeometry x="60" y="440" width="300" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="e-ai-ab" style="edgeStyle=orthogonalEdgeStyle;" parent="1" source="aimanager" target="agentbrain-container" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="layer4-label" value="Capa 4 — Datos (DOD)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#CCCCCC;" parent="1" vertex="1">
+          <mxGeometry x="60" y="590" width="300" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tiledata" value="&lt;b&gt;TileData[]&lt;/b&gt;&lt;br&gt;Grid · Structs · Array plano&lt;br&gt;Humidity · Fertility · Altitude" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;fontSize=11;arcSize=8;" parent="1" vertex="1">
+          <mxGeometry x="210" y="610" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="agentstate" value="&lt;b&gt;AgentState[]&lt;/b&gt;&lt;br&gt;Structs · Array central&lt;br&gt;Hunger · Fear · Faith" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;fontSize=11;arcSize=8;" parent="1" vertex="1">
+          <mxGeometry x="592.5" y="610" width="145" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="pathnodes" value="&lt;b&gt;PathNode heap&lt;/b&gt;&lt;br&gt;Open List · Closed List&lt;br&gt;g · h · f · parent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;fontSize=11;arcSize=8;" parent="1" vertex="1">
+          <mxGeometry x="782.5" y="610" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e-gm-td" style="edgeStyle=orthogonalEdgeStyle;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="gridmanager" target="tiledata" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="400" />
+              <mxPoint x="280" y="400" />
+              <mxPoint x="280" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-ai-as" style="edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="aimanager" target="agentstate" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="530" y="630" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="780" y="420" />
+              <mxPoint x="370" y="420" />
+              <mxPoint x="370" y="645" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-pf-pn" style="edgeStyle=orthogonalEdgeStyle;" parent="1" source="pathfinder" target="pathnodes" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-ab-as" value="ApplyStateChange()" style="edgeStyle=orthogonalEdgeStyle;dashed=1;fontSize=10;" parent="1" source="agentbrain-container" target="agentstate" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-title" value="&lt;b&gt;Leyenda&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="60" y="705" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-solid" value="Llamada directa (tick)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="180" y="705" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-dashed" value="Push evento / Pull query" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="400" y="705" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-solid-line" value="" style="edgeStyle=none;endArrow=block;endFill=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="155" y="715" as="sourcePoint" />
+            <mxPoint x="175" y="715" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-dashed-line" value="" style="edgeStyle=none;endArrow=open;endFill=0;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="375" y="715" as="sourcePoint" />
+            <mxPoint x="395" y="715" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XfwKmYHh_kC5LLXfRBd4-1" value="" style="group;fontColor=#000000;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="390" y="460" width="550" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="agentbrain-container" value="&lt;font color=&quot;#000000&quot;&gt;&lt;b&gt;AgentBrain&lt;/b&gt; (instancia por agente)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#d6b656;fontSize=12;arcSize=5;verticalAlign=top;" parent="XfwKmYHh_kC5LLXfRBd4-1" vertex="1">
+          <mxGeometry width="550" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="utilityai" value="&lt;font color=&quot;#000000&quot;&gt;&lt;b&gt;UtilityAI&lt;/b&gt;&lt;br&gt;Score de acciones&lt;br&gt;Curvas · Personalidad&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;arcSize=8;" parent="XfwKmYHh_kC5LLXfRBd4-1" vertex="1">
+          <mxGeometry x="20" y="25" width="135" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="behaviortree" value="&lt;font color=&quot;#000000&quot;&gt;&lt;b&gt;BehaviorTree&lt;/b&gt;&lt;br&gt;Ejecución de acción&lt;br&gt;SUCCESS · FAILURE · RUNNING&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;arcSize=8;" parent="XfwKmYHh_kC5LLXfRBd4-1" vertex="1">
+          <mxGeometry x="190" y="25" width="175" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="pathfinder" value="&lt;font color=&quot;#000000&quot;&gt;&lt;b&gt;Pathfinder&lt;/b&gt;&lt;br&gt;A* sobre Grid&lt;br&gt;Octile Distance&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;arcSize=8;" parent="XfwKmYHh_kC5LLXfRBd4-1" vertex="1">
+          <mxGeometry x="400" y="25" width="125" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e-ut-bt" value="" style="edgeStyle=orthogonalEdgeStyle;fontColor=#000000;strokeColor=#000000;" parent="XfwKmYHh_kC5LLXfRBd4-1" source="utilityai" target="behaviortree" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-bt-pf" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#000000;" parent="XfwKmYHh_kC5LLXfRBd4-1" source="behaviortree" target="pathfinder" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
